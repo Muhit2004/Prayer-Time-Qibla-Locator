@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PrayerTimeFragment"
+    android:orientation="vertical"
+    android:background="@color/bg_cream">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green_primary"
+        android:orientation="vertical"
+        android:paddingTop="32dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prayer Time Today"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Abu Dhabi, UAE"
+            android:textColor="#CCFFFFFF"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#BBFFFFFF"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginTop="2dp" />
+
+
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp"
+        android:background="@color/gold_accent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Prayer"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_next_prayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dhuhr"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp" />
+
+       <TextView
+        android:id="@+id/tv_next_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:25 PM"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time Remaining"
+            android:textColor="#DDFFFFFF"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/tv_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Today's Prayer Times"
+        android:textColor="@color/text_dark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginBottom="70dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow android:padding="12dp">
+
+                <TextView
+                    android:text="Fajr"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_fajr_time"
+                    android:gravity="end"
+                    android:text="04:30 AM"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+
+            <TableRow
+                android:padding="12dp">
+                <TextView
+                    android:text="Dhuhr"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"/>
+
+                <TextView
+                    android:id="@+id/tv_dhuhr_time"
+                    android:text="12:20 PM"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:textColor="@color/text_dark"/>
+            </TableRow>
+
+            <TableRow
+                android:padding="12dp">
+
+                <TextView
+                    android:text="Asr"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"/>
+
+                <TextView
+                    android:id="@+id/tv_asr_time"
+                    android:text="03:45 PM"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:textColor="@color/text_dark"/>
+            </TableRow>
+
+            <TableRow
+                android:padding="12dp">
+
+                <TextView
+                    android:text="Maghrib"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"/>
+
+                <TextView
+                    android:id="@+id/tv_maghrib_time"
+                    android:text="07:05 PM"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:textColor="@color/text_dark"/>
+
+            </TableRow>
+
+            <TableRow
+                android:padding="12dp">
+
+                <TextView
+                    android:text="Isha"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_dark"/>
+
+                <TextView
+                    android:id="@+id/tv_isha_time"
+                    android:text="08:35 PM"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:textColor="@color/text_dark"/>
+            </TableRow>
+
+        </TableLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

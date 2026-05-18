@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_prayer" android:icon="@drawable/ic_prayer" android:title="Prayer"/>
+    <item android:id="@+id/nav_qibla" android:icon="@drawable/ic_qibla" android:title="Qibla"/>
+    <item android:id="@+id/nav_tasbih" android:icon="@drawable/ic_tasbih" android:title="Tasbih"/>
+    <item android:id="@+id/nav_settings" android:icon="@drawable/ic_settings" android:title="Settings"/>
+</menu>
