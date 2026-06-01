@@ -31,6 +31,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -44,6 +45,14 @@
     android:background="@android:color/white"
     android:padding="16dp"
     android:layout_marginBottom="12dp">
+    <Button
+        android:id="@+id/btn_auto_locate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Use My Exact Location"
+        android:backgroundTint="@color/green_primary"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -217,10 +226,99 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:backgroundTint="@color/green_primary"/>
+        android:backgroundTint="@color/green_primary"
+        />
 
 </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp">
+        <LinearLayout
+            android:id="@+id/nav_prayer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onBottomNavClicked"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_prayer"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prayer"
+                android:textColor="@color/text_dark"
+                android:textSize="17sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/nav_qibla"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onBottomNavClicked"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_qibla"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qibla"
+                android:textColor="@color/text_dark"
+                android:textSize="17sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/nav_tasbih"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onBottomNavClicked"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_tasbih"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tasbih"
+                android:textColor="@color/text_dark"
+                android:textSize="17sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/nav_settings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onBottomNavClicked"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_settings"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textColor="@color/text_dark"
+                android:textSize="17sp"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

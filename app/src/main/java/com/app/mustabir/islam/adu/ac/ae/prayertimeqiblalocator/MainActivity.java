@@ -1,77 +1,55 @@
 package com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator;
+
+// Standard Native Android Imports
+import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
+import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.SettingsFragment;
+import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.R;
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.PrayerTimeFragment;
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.QiblaFragment;
-import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.SettingsFragment;
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.TasbihFragment;
 
-public class MainActivity extends AppCompatActivity {
-
-    private FragmentManager fragmentManager;
-
-    private PrayerTimeFragment prayerTimesFragment;
-    private QiblaFragment qiblaFragment;
-    private TasbihFragment tasbihFragment;
-    private SettingsFragment settingsFragment;
-
-    private Fragment activeFragment;
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // This loads your new 2x2 Grid Dashboard XML
         setContentView(R.layout.activity_main);
-
-        fragmentManager = getSupportFragmentManager();
-
-        prayerTimesFragment = new PrayerTimeFragment();
-        qiblaFragment = new QiblaFragment();
-        tasbihFragment = new TasbihFragment();
-        settingsFragment = new SettingsFragment();
-
-        if (savedInstanceState == null) {
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-
-            ft.add(R.id.fragment_container, settingsFragment, "settings").hide(settingsFragment);
-            ft.add(R.id.fragment_container, tasbihFragment, "tasbih").hide(tasbihFragment);
-            ft.add(R.id.fragment_container, qiblaFragment, "qibla").hide(qiblaFragment);
-            ft.add(R.id.fragment_container, prayerTimesFragment, "prayer");
-
-            ft.commit();
-            activeFragment = prayerTimesFragment;
-        }
     }
 
-    public void onBottomNavClicked(View v) {
-        int id = v.getId();
+    /**
+     * This method is triggered perfectly by the android:onClick="onBottomNavClicked"
+     * attribute you placed on your 4 dashboard cards.
+     */
+    public void onBottomNavClicked(View view) {
+        Fragment selectedFragment = null;
 
+        // Check which dashboard card the user tapped
+        int id = view.getId();
         if (id == R.id.nav_prayer) {
-            switchFragment(prayerTimesFragment);
+            selectedFragment = new PrayerTimeFragment(); // Uncomment when ready
         } else if (id == R.id.nav_qibla) {
-            switchFragment(qiblaFragment);
+             selectedFragment = new QiblaFragment(); // Uncomment when ready
         } else if (id == R.id.nav_tasbih) {
-            switchFragment(tasbihFragment);
+             selectedFragment = new TasbihFragment(); // Uncomment when ready
         } else if (id == R.id.nav_settings) {
-            switchFragment(settingsFragment);
-        }
-    }
-
-    private void switchFragment(Fragment target) {
-        if (target == activeFragment) {
-            return;
+            // Initialize the Settings Fragment we just built!
+            selectedFragment = new SettingsFragment();
         }
 
-        fragmentManager.beginTransaction()
-                .hide(activeFragment)
-                .show(target)
-                .commit();
-
-        activeFragment = target;
+        // If a valid fragment was selected, launch it over the dashboard
+        if (selectedFragment != null) {
+            getFragmentManager().beginTransaction()
+                    // Replace the entire system window content with the Fragment
+                    .replace(android.R.id.content, selectedFragment)
+                    // This is CRITICAL: It allows the phone's physical "Back" arrow
+                    // to close the fragment and reveal the dashboard again
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }
