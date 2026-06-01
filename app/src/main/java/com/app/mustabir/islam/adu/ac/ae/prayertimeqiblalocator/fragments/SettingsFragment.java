@@ -22,18 +22,15 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
-// Native Java Network & Data Parsing Imports for API
-import org.json.JSONArray;
+//  Java Network & Data Parsing Imports for API
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
 
-// Your custom app imports
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.DatabaseHelper;
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.R;
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.models.UserPreference;
@@ -42,7 +39,6 @@ public class SettingsFragment extends Fragment {
 
     private EditText etCountry, etCity, etTasbihTarget;
     private RadioGroup rgMethod, rgTheme;
-    private Switch switchNotification;
     private Button btnSave, btnAutoLocate;
 
     private DatabaseHelper dbHelper;
@@ -65,7 +61,6 @@ public class SettingsFragment extends Fragment {
         etTasbihTarget     = (EditText) view.findViewById(R.id.et_tasbih_target);
         rgMethod           = (RadioGroup) view.findViewById(R.id.rg_method);
         rgTheme            = (RadioGroup) view.findViewById(R.id.rg_theme);
-        switchNotification = (Switch) view.findViewById(R.id.switch_notification);
         btnSave            = (Button) view.findViewById(R.id.btn_save_settings);
         btnAutoLocate      = (Button) view.findViewById(R.id.btn_auto_locate);
 
@@ -130,7 +125,6 @@ currentPrefs = dbHelper.getPreferences();
         } else {
             rgTheme.check(R.id.rb_theme_light);
         }
-        switchNotification.setChecked(currentPrefs.isNotificationEnabled());
     }
 
     //saving settings method
@@ -147,8 +141,6 @@ currentPrefs = dbHelper.getPreferences();
         currentPrefs.setCountry(countryInput);
         currentPrefs.setCity(cityInput);
         currentPrefs.setTasbihTarget(Integer.parseInt(targetInput));
-        currentPrefs.setNotificationEnabled(switchNotification.isChecked());
-
         if (rgMethod.getCheckedRadioButtonId() == R.id.rb_method_uae) {
             currentPrefs.setCalculationMethod("UAE Awqaf Method");
         } else {

@@ -1,7 +1,6 @@
 package com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -190,7 +189,7 @@ public class PrayerTimeFragment extends Fragment {
         }
     }
 
-    // ── 8. Next Prayer Logic & Countdown Engine ──
+    //  Next Prayer Logic & Countdown Engine
     private void setupNextPrayerAndCountdown() {
         if (countDownTimer != null) countDownTimer.cancel();
 
