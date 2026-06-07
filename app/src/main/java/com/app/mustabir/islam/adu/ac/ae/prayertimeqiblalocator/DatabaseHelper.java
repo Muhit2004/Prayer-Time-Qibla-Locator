@@ -209,15 +209,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    // ── Read Prayer Times ───────────────────────────────────────
-    public Cursor getPrayerTimesByDate(String date) {
-        SQLiteDatabase db = this.getReadableDatabase();
 
-        String sql = "SELECT * FROM " + TABLE_PRAYER + " WHERE " + COL_DATE + " = '" + date + "'";
-
-        // Execute the query and return the Cursor pointer to the Fragment
-        return db.rawQuery(sql, null);
-    }
 
     public void updateTasbihName(int id, String newName) {
         SQLiteDatabase db = this.getWritableDatabase();

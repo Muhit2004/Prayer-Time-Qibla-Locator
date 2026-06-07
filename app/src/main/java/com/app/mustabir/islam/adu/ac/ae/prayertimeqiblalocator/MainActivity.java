@@ -11,7 +11,7 @@ import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.QiblaFr
 import com.app.mustabir.islam.adu.ac.ae.prayertimeqiblalocator.fragments.TasbihFragment;
 
 public class MainActivity extends Activity {
-
+//main
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
